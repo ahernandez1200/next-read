@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>Books API Example</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body id="body">
+    <div id="content"></div>
+    <p class="p1">Hello</p>
+
+   <!-- <script src="app.js" charset="utf-8"> </script> -->
+    <!-- <script>
+      function handleResponse(response) {
+      for (var i = 0; i < response.items.length; i++) {
+         // alert(i);
+        var item = response.items[i];
+        // in production code, item.text should have the HTML entities escaped.
+        // document.getElementById("content").innerHTML += "<br>" + item.volumeInfo.imageLinks.smallThumbnail;
+
+        const newImg = document.createElement("img");
+        const brk = document.createElement("br");
+        newImg.src = item.volumeInfo.imageLinks.smallThumbnail;
+
+        document.getElementById('body').appendChild(newImg);
+        document.getElementById('body').appendChild(brk);
+      }
+    }
+    </script> -->
+    <script src="https://www.googleapis.com/books/v1/volumes?q=From_Here_to_eternity&maxResults=1&callback=handleResponse"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="app.js"   charset="utf-8"> </script> -->
+  </body>
+</html>
