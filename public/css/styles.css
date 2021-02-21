@@ -10,9 +10,12 @@ p {
 }
 
 
-
 .navbar {
    padding: .5rem 10rem;
+}
+
+.menuDiv {
+   top: 2.5rem;
 }
 
 .contentDiv {
