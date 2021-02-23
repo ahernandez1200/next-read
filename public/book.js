@@ -1,8 +1,13 @@
 
 $(document).ready(function(){
 
+
+$(".dropdown-item").click(function(){
+   alert("drop-item click working");
+});
+
 var getReqURL =
-   "https://www.googleapis.com/books/v1/volumes?q=From_Here_to_eternity&maxResults=2&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+   "https://www.googleapis.com/books/v1/volumes?q=From_Here_to_eternity&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
 
 
 fetch(getReqURL)
