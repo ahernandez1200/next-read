@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
 
+// alert($("#invisible1").text());
+
 /*we will append elements containing book-related info to the div with this
   ID*/
 const divID = "bookDetails";
@@ -8,7 +10,7 @@ const divID = "bookDetails";
 let natFicBooks = ["Interior_Chinatown"];
 
 let dfltBookReqUrl =
-      "https://www.googleapis.com/books/v1/volumes?q=From_Here_to_eternity&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+      "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
 
 let bookReqUrl =
             "https://www.googleapis.com/books/v1/volumes?q=BOOK_TITLE&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
