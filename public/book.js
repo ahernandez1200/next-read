@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
 
-// alert($("#invisible1").text());
+alert($("#nbtNonFiction").text());
 
 /*we will append elements containing book-related info to the div with this
   ID*/

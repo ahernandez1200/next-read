@@ -13,10 +13,10 @@ const app = express();
 //reading the contents of the .txt files within bookScrapper/ into variables
 const nbtFiction = fs.readFileSync("bookScrapper/natBookTitlesFiction.txt",'utf8');
 const nbtNonFiction = fs.readFileSync("bookScrapper/natBookTitlesNonFiction.txt",'utf8');
-const nbtNonPoetry = fs.readFileSync("bookScrapper/natBookTitlesPoetry.txt",'utf8');
+const nbtPoetry = fs.readFileSync("bookScrapper/natBookTitlesPoetry.txt",'utf8');
 const pptFiction = fs.readFileSync("bookScrapper/pulPrizeTitlesFiction.txt",'utf8');
 const pptNonFiction = fs.readFileSync("bookScrapper/pulPrizeTitlesNonFiction.txt",'utf8');
-const pptNonPoetry = fs.readFileSync("bookScrapper/pulPrizeTitlesPoetry.txt",'utf8');
+const pptPoetry = fs.readFileSync("bookScrapper/pulPrizeTitlesPoetry.txt",'utf8');
 
 
 //specifies the directory from which to serve static files
@@ -34,7 +34,16 @@ app.listen(3000, function() {
 
 //home directory
 app.get("/", (req, res)=>{
-   res.render("home");
+   res.render("home",
+      {  nbtFiction: nbtFiction,
+         nbtNonFiction: nbtNonFiction,
+         nbtPoetry: nbtPoetry,
+         pptFiction: pptFiction,
+         pptNonFiction: pptNonFiction,
+         pptPoetry: pptPoetry
+      }
+
+   );
 });
 
 
