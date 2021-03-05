@@ -19,6 +19,7 @@ const pptNonFiction = fs.readFileSync("bookScrapper/pulPrizeTitlesNonFiction.txt
 const pptPoetry = fs.readFileSync("bookScrapper/pulPrizeTitlesPoetry.txt",'utf8');
 
 
+
 //specifies the directory from which to serve static files
 app.use(express.static("public"));
 //enabling the use of static template files

@@ -1,13 +1,18 @@
 
 $(document).ready(function(){
 
-alert($("#nbtNonFiction").text());
+$("#nbtNonFiction").text();
 
 /*we will append elements containing book-related info to the div with this
   ID*/
 const divID = "bookDetails";
 
-let natFicBooks = ["Interior_Chinatown"];
+let natFicBooks = $("#nbtFiction").text().split("|||");
+let natNonFicBooks =  $("#nbtNonFiction").text().split("|||");
+let natPoetryBooks =  $("#nbtPoetry").text().split("|||");
+let pulFicBooks =  $("#pptFiction").text().split("|||");
+let pulNonFicBooks =  $("#pptNonFiction").text().split("|||");
+let pulPoetryBooks =  $("#pptPoetry").text().split("|||");
 
 let dfltBookReqUrl =
       "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
