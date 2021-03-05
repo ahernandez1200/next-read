@@ -6,6 +6,7 @@ $("#nbtNonFiction").text();
 /*we will append elements containing book-related info to the div with this
   ID*/
 const divID = "bookDetails";
+const dfltBook="The_Shield_of_Achilles";
 
 let natFicBooks = $("#nbtFiction").text().split("|||");
 let natNonFicBooks =  $("#nbtNonFiction").text().split("|||");
@@ -14,18 +15,21 @@ let pulFicBooks =  $("#pptFiction").text().split("|||");
 let pulNonFicBooks =  $("#pptNonFiction").text().split("|||");
 let pulPoetryBooks =  $("#pptPoetry").text().split("|||");
 
-let dfltBookReqUrl =
-      "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+let previousBookTitle="";
+let currentBookTitle = dfltBook;
 
-let bookReqUrl =
-            "https://www.googleapis.com/books/v1/volumes?q=BOOK_TITLE&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+// let dfltBookReqUrl =
+//       "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+
+var bookReqUrl =
+            "https://www.googleapis.com/books/v1/volumes?q=" +currentBookTitle+ "&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
 
 /*this var is updated whenever the user selects a category from the drop-down
   menu. The id of the selected dropdown-item is recorded in this var.*/
 let currentCategory = "";
 
 //displaying the book info of the default book.
-displayBookAndInfo(dfltBookReqUrl);
+displayBookAndInfo(bookReqUrl);
 
 //adding click event to the book categories
 $(".dropdown-item").click(function(){
@@ -38,47 +42,66 @@ function newBookReqUrl() {
    let bookTitle = "";
    let tempCurrentCategory = currentCategory;
 
-   if(currentCategory = "NAT1") {
-      bookTitle =
+   if(tempCurrentCategory = "NAT1") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert(bookTitle);
-      bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   // else if(currentCategory = "NAT2") {
-   //    bookTitle =
-   //       natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-   //    alert(bookTitle);
-   //    bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
-   // }
-   // else if(currentCategory = "NAT3") {
-   //    bookTitle =
-   //       natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-   //    alert(bookTitle);
-   //    bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
-   // }
-   // else if(currentCategory = "PUL1") {
-   //    bookTitle =
-   //       natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-   //    alert(bookTitle);
-   //    bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
-   // }
-   // else if(currentCategory = "PUL2") {
-   //    bookTitle =
-   //       natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-   //    alert(bookTitle);
-   //    bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
-   // }
-   // else if(currentCategory = "PUL3") {
-   //    bookTitle =
-   //       natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-   //    alert(bookTitle);
-   //    bookReqUrl = bookReqUrl.replace("BOOK_TITLE", bookTitle);
-   // }
+   else if(tempCurrentCategory = "NAT2") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
+         natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
+   }
+   else if(tempCurrentCategory = "NAT3") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
+         natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
+   }
+   else if(tempCurrentCategory = "PUL1") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
+         natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
+   }
+   else if(tempCurrentCategory = "PUL2") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
+         natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
+   }
+   else if(tempCurrentCategory = "PUL3") {
+      previousBookTitle = currentBookTitle
+      currentBookTitle =
+         natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
+      alert("book req url: " + bookReqUrl);
+      alert(previousBookTitle);
+      alert(currentBookTitle);
+      bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
+   }
 }
 
 $(".bcButton").click(function(){
    alert(bookReqUrl);
    $( "#" + divID ).remove();
+   newBookReqUrl();
    displayBookAndInfo(bookReqUrl);
 });
 
@@ -92,6 +115,7 @@ function displayBookAndInfo(bookGetReq) {
         addBookTitle(data);
         addCoverImg(data);
         addAuthor(data);
+        addCategory();
         addDescription(data);
         addPublishedDate(data);
    });
@@ -110,7 +134,6 @@ function addDiv(){
 
 }
 
-
 function addBookTitle(jsonObj) {
    let newP = document.createElement("p");
    newP.innerHTML ="<em>" + jsonObj.items[0].volumeInfo.title + "</em>";
@@ -118,13 +141,54 @@ function addBookTitle(jsonObj) {
    // $(newP).insertBefore(".bcButton");
    document.getElementById(divID).appendChild(newP);
 
+}
 
+function addCategory() {
+   let newPAward = document.createElement("p");
+   let newPCategory = document.createElement("p");
+   newPCategory.innerHTML="";
+
+   if(currentCategory == "NAT1") {
+      newPAward.innerHTML = "National Book Award";
+      newPCategory.innerHTML = "Fiction";
+   }
+   else if(currentCategory == "NAT2") {
+      newPAward.innerHTML = "National Book Award";
+      newPCategory.innerHTML = "Non-Fiction";
+   }
+   else if(currentCategory == "NAT3") {
+      newPAward.innerHTML = "National Book Award";
+      newPCategory.innerHTML = "Poetry";
+   }
+   else if(currentCategory == "NAT") {
+      newPAward.innerHTML = "National Book Award";
+   }
+   else if(currentCategory == "PUL1") {
+      newPAward.innerHTML = "Pulitzer Prize";
+      newPCategory.innerHTML = "Fiction";
+   }
+   else if(currentCategory == "PUL2") {
+      newPAward.innerHTML = "Pulitzer Prize";
+      newPCategory.innerHTML = "General Non-Fiction";
+   }
+   else if(currentCategory == "PUL3") {
+      newPAward.innerHTML = "Pulitzer Prize";
+      newPCategory.innerHTML = "Poetry";
+   }
+   else {
+      newPAward.innerHTML = "Pulitzer Prize";
+   }
+
+   document.getElementById(divID).appendChild(newPAward);
+
+   if(newPCategory.innerHTML != "")
+      document.getElementById(divID).appendChild(newPCategory);
 }
 
 function addCoverImg(jsonObj) {
    let newImg = document.createElement("img");
    newImg.src = jsonObj.items[0].volumeInfo.imageLinks.thumbnail;
-   // document.getElementById('bookContent').appendChild(newImg);
+   // document.getElementById('bookContent').appendChild(newImg);S
    // $(newImg).insertBefore(".bcButton");
    document.getElementById(divID).appendChild(newImg);
 
