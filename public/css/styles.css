@@ -2,6 +2,7 @@
 
 body {
    background-color: #58CCED;
+   font-family: "Monaco";
 }
 
 p {
@@ -9,6 +10,9 @@ p {
    background-color: white;
 }
 
+.cat-alert {
+   display:none;
+}
 
 .navbar {
    padding: .5rem 10rem;

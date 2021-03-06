@@ -28,11 +28,18 @@ var bookReqUrl =
   menu. The id of the selected dropdown-item is recorded in this var.*/
 let currentCategory = "";
 
+let tempCurrentCategory = "";
+
+
 //displaying the book info of the default book.
 displayBookAndInfo(bookReqUrl);
 
 //adding click event to the book categories
 $(".dropdown-item").click(function(){
+   // $("#categoryAlert").fadeIn(1500).fadeOut(1500);
+   $(".cat-alert").hide().fadeIn(750).fadeOut(750);
+
+
    //recording the id of the selected category
    currentCategory = $(this).attr('id');
    newBookReqUrl();
@@ -40,66 +47,74 @@ $(".dropdown-item").click(function(){
 
 function newBookReqUrl() {
    let bookTitle = "";
-   let tempCurrentCategory = currentCategory;
+   tempCurrentCategory = currentCategory;
 
-   if(tempCurrentCategory = "NAT1") {
+   if(tempCurrentCategory == "NAT" || tempCurrentCategory == "PUL") {
+      tempCurrentCategory = tempCurrentCategory +
+         (1 + (Math.floor(Math.random()*100) % 3) ).toString();
+      // alert("current category: " + currentCategory);
+      // alert("in any category: " + tempCurrentCategory);
+   }
+   // alert("in newBookReqUrl(), tempCurrentCategory: " + tempCurrentCategory);
+   if(tempCurrentCategory == "NAT1") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   else if(tempCurrentCategory = "NAT2") {
+   else if(tempCurrentCategory == "NAT2") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   else if(tempCurrentCategory = "NAT3") {
+   else if(tempCurrentCategory == "NAT3") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   else if(tempCurrentCategory = "PUL1") {
+   else if(tempCurrentCategory == "PUL1") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   else if(tempCurrentCategory = "PUL2") {
+   else if(tempCurrentCategory == "PUL2") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
-   else if(tempCurrentCategory = "PUL3") {
+   else if(tempCurrentCategory == "PUL3") {
       previousBookTitle = currentBookTitle
       currentBookTitle =
          natFicBooks[ Math.floor(Math.random()*100) % natFicBooks.length];
-      alert("book req url: " + bookReqUrl);
-      alert(previousBookTitle);
-      alert(currentBookTitle);
+      // alert("book req url: " + bookReqUrl);
+      // alert(previousBookTitle);
+      // alert(currentBookTitle);
       bookReqUrl = bookReqUrl.replace(previousBookTitle, currentBookTitle);
    }
 }
 
 $(".bcButton").click(function(){
-   alert(bookReqUrl);
+   // alert(bookReqUrl);
+
    $( "#" + divID ).remove();
    newBookReqUrl();
    displayBookAndInfo(bookReqUrl);
@@ -148,35 +163,30 @@ function addCategory() {
    let newPCategory = document.createElement("p");
    newPCategory.innerHTML="";
 
-   if(currentCategory == "NAT1") {
+   // alert("in add category..tempCurrentCategory: " + tempCurrentCategory);
+   if(tempCurrentCategory == "NAT1") {
       newPAward.innerHTML = "National Book Award";
       newPCategory.innerHTML = "Fiction";
    }
-   else if(currentCategory == "NAT2") {
+   else if(tempCurrentCategory == "NAT2") {
       newPAward.innerHTML = "National Book Award";
       newPCategory.innerHTML = "Non-Fiction";
    }
-   else if(currentCategory == "NAT3") {
+   else if(tempCurrentCategory == "NAT3") {
       newPAward.innerHTML = "National Book Award";
       newPCategory.innerHTML = "Poetry";
    }
-   else if(currentCategory == "NAT") {
-      newPAward.innerHTML = "National Book Award";
-   }
-   else if(currentCategory == "PUL1") {
+   else if(tempCurrentCategory == "PUL1") {
       newPAward.innerHTML = "Pulitzer Prize";
       newPCategory.innerHTML = "Fiction";
    }
-   else if(currentCategory == "PUL2") {
+   else if(tempCurrentCategory == "PUL2") {
       newPAward.innerHTML = "Pulitzer Prize";
       newPCategory.innerHTML = "General Non-Fiction";
    }
-   else if(currentCategory == "PUL3") {
+   else  {
       newPAward.innerHTML = "Pulitzer Prize";
       newPCategory.innerHTML = "Poetry";
-   }
-   else {
-      newPAward.innerHTML = "Pulitzer Prize";
    }
 
    document.getElementById(divID).appendChild(newPAward);
