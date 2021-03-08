@@ -3,6 +3,8 @@
 body {
    background-color: #58CCED;
    font-family: "Monaco";
+
+   /* monaco */
 }
 
 p {
@@ -10,7 +12,11 @@ p {
    background-color: white;
 }
 
-.cat-alert {
+.cat-alert-1 {
+   display:none;
+}
+
+.cat-alert-2 {
    display:none;
 }
 

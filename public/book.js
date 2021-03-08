@@ -1,6 +1,8 @@
 
 $(document).ready(function(){
 
+$(".cat-alert-1").hide().fadeIn(1000).fadeOut(1000);
+
 $("#nbtNonFiction").text();
 
 /*we will append elements containing book-related info to the div with this
@@ -37,7 +39,7 @@ displayBookAndInfo(bookReqUrl);
 //adding click event to the book categories
 $(".dropdown-item").click(function(){
    // $("#categoryAlert").fadeIn(1500).fadeOut(1500);
-   $(".cat-alert").hide().fadeIn(750).fadeOut(750);
+   $(".cat-alert-2").hide().fadeIn(750).fadeOut(750);
 
 
    //recording the id of the selected category
