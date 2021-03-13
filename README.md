@@ -1,6 +1,6 @@
-# next-read *in progress*
+# next-read 
 ---
-*A web app that will help you find your next read!*
+*A web app that will help you find your next read! (in progress)*
 
 ## Purpose
 ---
