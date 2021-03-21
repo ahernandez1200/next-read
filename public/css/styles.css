@@ -3,13 +3,14 @@
 body {
    background-color: #58CCED;
    font-family: "Monaco";
-
+   font-size: 1.25rem;
    /* monaco */
 }
 
 p {
    margin: 1rem 10rem;
    background-color: white;
+   border-radius: 1.5rem 1rem;
 }
 
 .cat-alert-1 {
