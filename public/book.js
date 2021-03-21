@@ -217,7 +217,11 @@ function addAuthor(jsonObj) {
 
 function addDescription(jsonObj) {
    let newP = document.createElement("p");
-   newP.innerHTML = jsonObj.items[0].volumeInfo.description;
+   newP.innerHTML = jsonObj.items[0].volumeInfo.description.substring(0, 550);
+
+   if(newP.innerHTML.length >= 550)
+      newP.innerHTML += " . . . ";
+
    // document.getElementById('bookContent').appendChild(newP);
    // $(newP).insertBefore(".bcButton");
    document.getElementById(divID).appendChild(newP);
