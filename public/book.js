@@ -21,10 +21,10 @@ let previousBookTitle="";
 let currentBookTitle = dfltBook;
 
 // let dfltBookReqUrl =
-//       "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+//       "https://www.googleapis.com/books/v1/volumes?q=The_Shield_of_Achilles&maxResults=1&key=API_KEY";
 
 var bookReqUrl =
-            "https://www.googleapis.com/books/v1/volumes?q=" +currentBookTitle+ "&maxResults=1&key=AIzaSyCg_gMcW0yKtYA4T03lt2sWcBbAz5581rc";
+            "https://www.googleapis.com/books/v1/volumes?q=" +currentBookTitle+ "&maxResults=1&key=API_KEY";
 
 /*this var is updated whenever the user selects a category from the drop-down
   menu. The id of the selected dropdown-item is recorded in this var.*/
