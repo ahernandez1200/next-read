@@ -18,5 +18,7 @@ that displays information related to those book titles -- like Author, publicati
 
 ## Give it a Try!
 ---
-Make a selection from the "Category" button at the top, then click the "Generate" button at the bottom, to display your next reading suggestion
+Make a selection from the "Category" button at the top, then click the "Generate" button at the bottom, to display your next reading suggestion:
+
+https://next-read-ahernandez.herokuapp.com/
 
